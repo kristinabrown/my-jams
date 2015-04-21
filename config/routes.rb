@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :songs
-  root 'songs#index'
+  root 'users#new'
   resources :users
   
   get '/login', to: "sessions#new"

@@ -32,4 +32,9 @@ RSpec.describe User, type: :model do
                     password_confirmation: "password")
     expect(user2).to_not be_valid
   end
+  
+  it "responds to songs" do
+    user = User.new
+    expect(user.songs).to eq([])
+  end
 end
