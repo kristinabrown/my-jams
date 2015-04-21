@@ -1,0 +1,7 @@
+<h1 class="jumbotron text-center"><%= @song.title %></h1>
+
+<h3>By <%= @song.artist %></h3>
+
+<%= link_to "Edit", edit_song_path(@song) %>
+
+<%= link_to "Delete", song_path(@song), method: :delete %>
