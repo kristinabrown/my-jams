@@ -8,7 +8,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="container">
   
   <nav class="navbar navbar-default">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -16,7 +16,11 @@
       <% if current_user == nil %> 
         <li><%= link_to "Login", login_path %></li>
         <li><%= link_to "New User", new_user_path %></li>
-      <% else %> 
+      <% elsif current_admin? %>
+        <li><%= link_to "New Tag", new_admin_tag_path %></li>
+        <li><%= link_to "Tag Index", admin_tags_path  %></li>
+        <li><%= link_to "Logout", logout_path, method: "delete" %></li>
+      <% else %>
         <li><%= link_to "Songs Index", songs_path %></li> 
         <li><%= link_to "Dashboard", current_user %></li>
         <ul class="nav navbar-nav navbar-right">

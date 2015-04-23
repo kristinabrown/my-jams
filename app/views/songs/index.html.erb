@@ -1,9 +1,12 @@
-<%= link_to "Create a new song!", new_song_path %>
+<h4>Hit counter: <%= session[:hitcounter] %></h4>
 
-<h1>Hit counter: <%= session[:hitcounter] %>
 
+<h1>Songs: </h1>
 <% @songs.each do |song| %>
- <h3><%= link_to song.title, song_path(song) %></h3><br>
+ <h2><%= link_to song.title, song_path(song) %></h2><br>
 <% end %>
+
+<h1><%= link_to "Create a new song!", new_song_path %></h1>
+
 
 

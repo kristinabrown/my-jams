@@ -1,8 +1,8 @@
 <%= form_for(@song) do |f| %>
   <%= f.text_field :title, placeholder: "title" %>
-  <%= f.text_field :artist, placeholder: "artist" %>
+  <%= f.text_field :artist, placeholder: "artist" %><br>
 
-    <%= f.collection_check_boxes(:tag_ids, @tags, :id, :name)%>
+  <%= f.collection_check_boxes(:tag_ids, @tags, :id, :name) %><br>
 
   <%= f.submit %>
 <% end %>

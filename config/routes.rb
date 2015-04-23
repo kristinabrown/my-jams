@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :songs
-  root 'users#new'
-  resources :users
+  root 'user#new'
+  resources :user
   
   namespace :admin do 
     resources :tags

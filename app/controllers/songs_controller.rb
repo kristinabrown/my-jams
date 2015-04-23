@@ -29,11 +29,15 @@ class SongsController < ApplicationController
   
   def edit
     @song = current_user.songs.find(params[:id])
+    @tags = Tag.all
   end
   
   def update
    @song = current_user.songs.find(params[:id])
+   tags = params[:song][:tag_ids].reject(&:empty?)
    if @song.update(song_params)
+     @song.tags.destroy_all
+     tags.each { |tag| @song.tags << Tag.find(tag) }
      redirect_to song_path(@song)
    else
      render :edit
