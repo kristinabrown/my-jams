@@ -1,6 +1,12 @@
 <h1 class="jumbotron text-center"><%= @song.title %></h1>
 
 <h3>By <%= @song.artist %></h3>
+<h2>tags: <h2>
+  <ul>
+    <% @song.tags.each do |tag| %>
+      <li><%= tag.name %></li>
+    <% end %>
+  </ul>
 
 <%= link_to "Edit", edit_song_path(@song) %>
 

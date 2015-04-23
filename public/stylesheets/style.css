@@ -9,7 +9,20 @@ div#flash_errors {
   color: white;
   padding: 5px;
 }
-
+/*
 body {
   padding: 10px;
+  background-image: url("../sick_background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
+
+div#user-header {
+  
+  background-color:  #9a2d3d;
+  color: white;
+  width: 40%;
+  padding: 10px;
+  border-radius: 25px;
+}*/
+

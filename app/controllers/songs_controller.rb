@@ -11,11 +11,14 @@ class SongsController < ApplicationController
   
   def new
     @song = current_user.songs.new
+    @tags = Tag.all
   end
   
-  def create 
+  def create
     @song = current_user.songs.new(song_params)
+    tags = params[:song][:tag_ids].reject(&:empty?)
     if @song.save
+      tags.each { |tag| @song.tags << Tag.find(tag) }
       flash[:notice] = "Song successfully saved!"
       redirect_to song_path(@song)
     else
@@ -46,7 +49,7 @@ class SongsController < ApplicationController
   private
   
   def song_params
-    params.require(:song).permit(:title, :artist, :user_id)
+    params.require(:song).permit(:title, :artist, :user_id, :tag_ids)
   end
   
 end

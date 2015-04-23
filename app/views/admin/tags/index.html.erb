@@ -1,0 +1,11 @@
+<h1>Listing Tags</h1>
+
+<% @tags.each do |tag| %>
+  <%= tag.name %> 
+  <%= link_to 'edit', edit_admin_tag_path(tag) %>
+  <%= link_to "delete", admin_tag_path(tag), method: :delete %><br>
+<% end %>
+
+<h3><%= link_to "Add a Tag!", new_admin_tag_path %></h3>
+
+
